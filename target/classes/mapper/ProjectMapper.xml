@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- classpath:mapper/ProjectMapper.xml -->
+<mapper namespace="com.fhz.dao.ProjectDao">
+
+	<!-- 查询项目信息 -->
+	<select id="findObjects" resultType="com.fhz.entity.Project">
+		select * from tms_projects;
+	</select>
+
+	<!-- 插入项目信息 -->
+	<insert id="insertObject" parameterType="com.fhz.entity.Project">
+
+		INSERT INTO tms_projects
+		(
+		id,
+		code,
+		name,
+		beginDate,
+		endDate,
+		valid,
+		note,
+		createdUser,
+		modifiedUser,
+		createdTime,
+		modifiedTime
+		)
+		values(
+		#{id},
+		#{code},
+		#{name},
+		#{beginDate},
+		#{endDate},
+		#{valid},
+		#{note},
+		#{createdUser},
+		#{modifiedUser},
+		NOW(),
+		NOW()
+		)
+	</insert>
+</mapper> 
+
+
+
+
